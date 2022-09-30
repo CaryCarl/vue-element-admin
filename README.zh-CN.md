@@ -26,7 +26,7 @@
   </a>
 </p>
 
-简体中文 | [English](./README.md) | [日本語](./README.ja.md) | [Spanish](./README.es.md)
+简体中文  --no-verify
 
 <p align="center">
   <b>SPONSORED BY</b>
