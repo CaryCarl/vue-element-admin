@@ -1,57 +1,55 @@
 <template>
-  <div class="app-container documentation-container">
-    <a class="document-btn" target="_blank" href="https://store.akveo.com/products/vue-java-admin-dashboard-spring?utm_campaign=akveo_store-Vue-Vue_demo%2Fgithub&utm_source=vue_admin&utm_medium=referral&utm_content=demo_English_button">Java backend integration</a>
-    <a class="document-btn" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/">Documentation</a>
-    <a class="document-btn" target="_blank" href="https://github.com/PanJiaChen/vue-element-admin/">Github Repository</a>
-    <a class="document-btn" target="_blank" href="https://panjiachen.gitee.io/vue-element-admin-site/zh/">国内文档</a>
-    <dropdown-menu class="document-btn" :items="articleList" title="系列文章" />
-    <a class="document-btn" target="_blank" href="https://panjiachen.github.io/vue-element-admin-site/zh/job/">内推招聘</a>
+  <div id="message" class="jiexi-page">
+    <div class="aside-right">
+      <div>
+        <el-button type="primary" @click="onBtn2(1)">网址信息解析</el-button>
+        <el-input v-model="inputWebUrl" placeholder="请输入网址"></el-input>
+      </div>
+      <div class="newslist">
+        <p @click="copyClick(inputWebUrl)">
+          <span>网址：</span>
+          <span>{{inputWebUrl}}</span>
+        </p>
+        <p @click="copyClick(newsObj.title)">
+          <span>标题：</span>
+          <span>{{newsObj.title}}</span>
+        </p>
+        <p @click="copyClick(newsObj.description)">
+          <span>描述：</span>
+          <span>{{newsObj.description}}</span>
+        </p>
+        <p @click="copyClick(newsObj.keywords)">
+          <span>关键词：</span>
+          <span>{{newsObj.keywords}}</span>
+        </p>
+      </div>
+
+      <div class="web-main">
+        <iframe :src="inputWebUrl" frameborder="0"></iframe>
+      </div>
+      <div>
+
+      </div>
+    </div>
+    <div class="aside-left">
+      <div class="t-main">
+        <el-button type="primary" @click="onBtn1(1)">链接数据解析</el-button>
+        <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea">
+        </el-input>
+      </div>
+
+      <div class="html-main">
+        <div v-html="textarea"></div>
+      </div>
+    </div>
+
   </div>
 </template>
 
-<script>
-import DropdownMenu from '@/components/Share/DropdownMenu'
 
-export default {
-  name: 'Documentation',
-  components: { DropdownMenu },
-  data() {
-    return {
-      articleList: [
-        { title: '基础篇', href: 'https://juejin.im/post/59097cd7a22b9d0065fb61d2' },
-        { title: '登录权限篇', href: 'https://juejin.im/post/591aa14f570c35006961acac' },
-        { title: '实战篇', href: 'https://juejin.im/post/593121aa0ce4630057f70d35' },
-        { title: 'vue-admin-template 篇', href: 'https://juejin.im/post/595b4d776fb9a06bbe7dba56' },
-        { title: 'v4.0 篇', href: 'https://juejin.im/post/5c92ff94f265da6128275a85' },
-        { title: '自行封装 component', href: 'https://segmentfault.com/a/1190000009090836' },
-        { title: '优雅的使用 icon', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' },
-        { title: 'webpack4（上）', href: 'https://juejin.im/post/59bb864b5188257e7a427c09' },
-        { title: 'webpack4（下）', href: 'https://juejin.im/post/5b5d6d6f6fb9a04fea58aabc' }
-      ]
-    }
-  }
-}
+<script>
+  import Documentation from './index.js';
+  export default Documentation;
 </script>
 
-<style lang="scss" scoped>
-.documentation-container {
-  margin: 50px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-
-  .document-btn {
-    flex-shrink: 0;
-    display: block;
-    cursor: pointer;
-    background: black;
-    color: white;
-    height: 60px;
-    padding: 0 16px;
-    margin: 16px;
-    line-height: 60px;
-    font-size: 20px;
-    text-align: center;
-  }
-}
-</style>
+<style lang="scss" src="./index.scss" scoped></style>

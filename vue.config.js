@@ -29,6 +29,7 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
+  // 浏览器 overlay 同时显示警告和错误
   devServer: {
     port: port,
     open: true,
